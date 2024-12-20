@@ -1,138 +1,172 @@
-# README: Using Show Commands in Cisco Packet Tracer
+# Cisco Packet Tracer: Useful `show` Commands
 
-This README provides instructions on how to use different **show** commands in Cisco Packet Tracer to inspect and verify configurations. These commands are essential for troubleshooting and validating your network setup.
-
----
+This repository is dedicated to documenting and explaining useful `show` commands for Cisco devices in Packet Tracer. Whether you are a beginner or an experienced network engineer, these commands will help you troubleshoot, verify configurations, and monitor the status of your devices.
 
 ## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Commonly Used Show Commands](#commonly-used-show-commands)
-  - [1. Viewing Interface Status](#1-viewing-interface-status)
-  - [2. Displaying VLAN Information](#2-displaying-vlan-information)
-  - [3. Verifying Trunk Configuration](#3-verifying-trunk-configuration)
-  - [4. Checking Routing Table](#4-checking-routing-table)
-  - [5. Viewing IP Interface Details](#5-viewing-ip-interface-details)
-  - [6. Showing Running Configuration](#6-showing-running-configuration)
-- [How to Access the CLI in Packet Tracer](#how-to-access-the-cli-in-packet-tracer)
+- [Overview](#overview)
+- [Common `show` Commands](#common-show-commands)
+  - [`show running-config`](#show-running-config)
+  - [`show startup-config`](#show-startup-config)
+  - [`show ip interface brief`](#show-ip-interface-brief)
+  - [`show vlan brief`](#show-vlan-brief)
+  - [`show interfaces`](#show-interfaces)
+  - [`show mac address-table`](#show-mac-address-table)
+  - [`show spanning-tree`](#show-spanning-tree)
+  - [`show version`](#show-version)
+  - [`show cdp neighbors`](#show-cdp-neighbors)
+  - [`show ip route`](#show-ip-route)
+  - [`show interfaces trunk`](#show-interfaces-trunk)
+  - [`show ip default-gateway`](#show-ip-default-gateway)
+- [How to Use These Commands](#how-to-use-these-commands)
+- [Contributing](#contributing)
+
+## Overview
+Cisco Packet Tracer is a network simulation tool used for learning and practicing networking concepts. The `show` commands are essential for troubleshooting and verifying the network configuration in Packet Tracer. This guide provides examples and explanations of these commands.
 
 ---
 
-## Prerequisites
-1. Install **Cisco Packet Tracer** (version 7.3 or above is recommended).
-2. Ensure you have a topology set up with devices such as switches, routers, or PCs.
-3. Familiarity with the **Command Line Interface (CLI)** of Cisco devices.
+## Common `show` Commands
+
+### `show running-config`
+**Description:** Displays the current configuration of the device that is stored in RAM.
+
+**Example:**
+```
+Switch# show running-config
+```
+**Use Case:** Verify the currently applied settings, including VLANs, interfaces, and routing protocols.
 
 ---
 
-## Commonly Used Show Commands
-Below are some useful **show** commands categorized by functionality:
+### `show startup-config`
+**Description:** Displays the configuration stored in NVRAM that the device uses on startup.
 
-### 1. Viewing Interface Status
-Use this command to check the status of all interfaces on the device:
-```bash
-show ip interface brief
+**Example:**
 ```
-- Displays:
-  - Interface names
-  - IP addresses
-  - Administrative and operational status (up/down)
-
-### 2. Displaying VLAN Information
-To view the VLANs configured on a switch:
-```bash
-show vlan brief
+Switch# show startup-config
 ```
-- Displays:
-  - VLAN IDs and names
-  - Ports assigned to each VLAN
-
-### 3. Verifying Trunk Configuration
-To check if an interface is operating as a trunk:
-```bash
-show interfaces trunk
-```
-- Displays:
-  - Trunking interfaces
-  - Allowed VLANs
-  - Native VLAN
-
-### 4. Checking Routing Table
-On routers, use this command to see the routing table:
-```bash
-show ip route
-```
-- Displays:
-  - Connected and static routes
-  - Routing protocols (e.g., RIP, OSPF, EIGRP)
-
-### 5. Viewing IP Interface Details
-To see detailed information about the IP configuration of interfaces:
-```bash
-show running-config
-```
-- Displays:
-  - IP addresses
-  - Subnet masks
-  - Interface-specific configurations
-
-### 6. Showing Running Configuration
-To view the current configuration on the device:
-```bash
-show running-config
-```
-- Displays:
-  - All active configurations
-  - Interface settings, VLANs, and more
+**Use Case:** Compare the current configuration (`running-config`) with the saved configuration to check for unsaved changes.
 
 ---
 
-## How to Access the CLI in Packet Tracer
-1. **Open the Device:**
-   - Click on the router, switch, or PC in your topology.
+### `show ip interface brief`
+**Description:** Provides a summary of the IP address and status of all interfaces.
 
-2. **Go to the CLI Tab:**
-   - In the device window, select the **CLI** tab.
-
-3. **Enable Privileged Mode:**
-   - Type:
-     ```bash
-     enable
-     ```
-
-4. **Run Show Commands:**
-   - Enter any of the commands listed above to inspect your configuration.
+**Example:**
+```
+Router# show ip interface brief
+```
+**Use Case:** Quickly verify the IP configuration and operational status of interfaces.
 
 ---
 
-### Example Workflow
-If you want to verify VLAN configurations and check trunk ports on a switch:
-1. Access the switch's CLI.
-2. Type:
-   ```bash
-   show vlan brief
-   ```
-3. Then check trunk ports with:
-   ```bash
-   show interfaces trunk
-   ```
-4. If issues arise, confirm interface statuses with:
-   ```bash
-   show ip interface brief
-   ```
+### `show vlan brief`
+**Description:** Displays a summary of VLAN configurations on the switch.
+
+**Example:**
+```
+Switch# show vlan brief
+```
+**Use Case:** Confirm VLAN IDs, names, and port assignments.
 
 ---
 
-## Troubleshooting Tips
-- If a device cannot ping another:
-  - Check interface status with `show ip interface brief`.
-  - Verify VLAN assignments with `show vlan brief`.
-  - Confirm trunking with `show interfaces trunk`.
-- Always save your configurations with:
-  ```bash
-  write memory
-  ```
+### `show interfaces`
+**Description:** Provides detailed information about the status and statistics of all interfaces.
+
+**Example:**
+```
+Switch# show interfaces
+```
+**Use Case:** Troubleshoot interface issues, such as errors, drops, or collisions.
 
 ---
 
-Feel free to contribute to this repository by adding more commands or examples!
+### `show mac address-table`
+**Description:** Displays the MAC address table of the switch.
+
+**Example:**
+```
+Switch# show mac address-table
+```
+**Use Case:** Verify the MAC addresses learned on each interface and troubleshoot Layer 2 connectivity.
+
+---
+
+### `show spanning-tree`
+**Description:** Displays the Spanning Tree Protocol (STP) status and configuration.
+
+**Example:**
+```
+Switch# show spanning-tree
+```
+**Use Case:** Check root bridge election, port roles, and STP topology.
+
+---
+
+### `show version`
+**Description:** Provides details about the device's hardware, software, and license.
+
+**Example:**
+```
+Router# show version
+```
+**Use Case:** Verify the Cisco IOS version, device model, and system uptime.
+
+---
+
+### `show cdp neighbors`
+**Description:** Displays information about directly connected Cisco devices using the Cisco Discovery Protocol (CDP).
+
+**Example:**
+```
+Router# show cdp neighbors
+```
+**Use Case:** Identify directly connected devices and their interfaces.
+
+---
+
+### `show ip route`
+**Description:** Displays the router's IP routing table, showing connected, static, and dynamic routes.
+
+**Example:**
+```
+Router# show ip route
+```
+**Use Case:** Verify the routing table to ensure proper Layer 3 connectivity and routing configurations for router-on-a-stick setups.
+
+---
+
+### `show interfaces trunk`
+**Description:** Displays information about trunk interfaces on a switch, including VLANs allowed and the trunking protocol in use.
+
+**Example:**
+```
+Switch# show interfaces trunk
+```
+**Use Case:** Verify that trunking is enabled and configured properly for inter-VLAN routing in router-on-a-stick setups.
+
+---
+
+### `show ip default-gateway`
+**Description:** Displays the configured default gateway on a switch.
+
+**Example:**
+```
+Switch# show ip default-gateway
+```
+**Use Case:** Verify that the correct default gateway is configured for Layer 3 communication from the switch to other network devices.
+
+---
+
+## How to Use These Commands
+1. Launch Cisco Packet Tracer and set up your network topology.
+2. Open the CLI (Command-Line Interface) for a device (e.g., a router or switch).
+3. Type any of the commands listed above to view the corresponding output.
+4. Analyze the output to troubleshoot or verify your network configuration.
+
+## Contributing
+Contributions are welcome! If you have additional useful `show` commands or suggestions for improving this guide, feel free to open an issue or submit a pull request.
+
+
 
