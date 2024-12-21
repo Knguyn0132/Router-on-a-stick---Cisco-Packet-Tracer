@@ -1,6 +1,6 @@
 # Cisco Packet Tracer: Useful `show` Commands
 
-This repository is dedicated to documenting and explaining useful `show` commands for Cisco devices in Packet Tracer. Whether you are a beginner or an experienced network engineer, these commands will help you troubleshoot, verify configurations, and monitor the status of your devices.
+This README is dedicated to documenting and explaining useful `show` commands for Cisco devices in Packet Tracer. Whether you are a beginner or an experienced network engineer, these commands will help you troubleshoot, verify configurations, and monitor the status of your devices.
 
 ## Table of Contents
 - [Overview](#overview)
